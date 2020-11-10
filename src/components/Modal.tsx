@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../styles/components/modal.css"
 import api from "../services/api"
+import axios from 'axios';
 
 interface ModalInfo{
   id:number,
@@ -16,15 +17,17 @@ const redeem = props.id;
 function handleClickYes(){  
 
   console.log(redeem)
+ 
+  
   api.post(`item/redeem/`,{"item_id":redeem})
   .then((response) => {        
     console.log(
-      `OK, enviado ${redeem}`
+      `Data has been sent to the server`
     );    
   })
   .catch((err) => {
     console.error(
-      `Houve um problema`
+      `Server internal error`
     );
     console.log(err); 
 })
