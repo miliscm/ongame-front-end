@@ -1,23 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "../styles/components/modal.css"
 import api from "../services/api"
-import axios from 'axios';
+
 
 interface ModalInfo{
   id:number,
   name:string,
   image:string,
-  classe: string
+  classe: string,
 }
 
 const Modal = (props: ModalInfo) => {
 const redeem = props.id;
 
-
 function handleClickYes(){  
-
-  console.log(redeem)
- 
   
   api.post(`item/redeem/`,{"item_id":redeem})
   .then((response) => {        
@@ -36,7 +32,7 @@ function handleClickYes(){
 
 
   return (
-    <div className={`modal-secound ${props.classe}`}>
+    <div id="teste" className={`modal-second ${props.classe}`}>
       <div className="modal-card">
         <h2>Deseja resgatar?</h2>
         <img src={props.image} alt=""/>

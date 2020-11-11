@@ -14,6 +14,8 @@ const ListRedeem: React.FC<itemsData> = (props) => {
   const [nameSelected,setNameSelected]=useState("")
   const [imageSelected,setImageSelected]=useState("")
   const redeembleStyle = {border:"none", color:" #fff"}
+
+  
   const [id,setId]=useState(0);
   const [classe,setClasse]=useState("");
   function handleRedeemed(id:number,name:string, redeemed: boolean, percentage:number, image:string){    
@@ -69,7 +71,8 @@ const ListRedeem: React.FC<itemsData> = (props) => {
                     </div>
                 </div>        
              <span></span>
-             <Modal name={nameSelected} image={imageSelected} classe={classe} id={id}/>             
+             <Modal name={nameSelected} image={imageSelected} classe={classe} id={id}/> 
+                      
     </>
   )
 }
