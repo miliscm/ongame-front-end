@@ -9,7 +9,7 @@
   color: black;
   z-index: 10;
 }
-.modal-secound.open {
+.modal-second.open {
   display: block;
 }
 

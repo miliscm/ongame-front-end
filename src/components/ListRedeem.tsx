@@ -29,7 +29,7 @@ const ListRedeem: React.FC<itemsData> = (props) => {
           <strong>Item Resgatado</strong>
           </button>
       )
-    }else if(percentage <100){
+    }else if(percentage < 100){
 
       return(<button disabled>Resgatar</button> )
     }
@@ -49,10 +49,10 @@ const ListRedeem: React.FC<itemsData> = (props) => {
 
   }
   function handleClick(id:number,name:string,image:string){
-    setId(id)
+    setId(id);
     setNameSelected(name);
     setImageSelected(image);  
-    setClasse("open")
+    setClasse("open");
 }
   return (
     <>
@@ -60,8 +60,7 @@ const ListRedeem: React.FC<itemsData> = (props) => {
                 <div className="content"> 
                     <div>
                        <h3>{props.name}</h3>
-                        {handleRedeemed(props.id,props.name,props.redeemed, props.percentage,props.image)}
-                        
+                        {handleRedeemed(props.id,props.name,props.redeemed, props.percentage,props.image)}                        
                     </div>                   
                   <div className={
                     props.redeemed? "off span":"span"}>
