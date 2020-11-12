@@ -8,16 +8,17 @@ interface itemsData{
   name: string,
   percentage: number,
   redeemed: boolean,
+  
 }
 
 const ListRedeem: React.FC<itemsData> = (props) => {
   const [nameSelected,setNameSelected]=useState("")
   const [imageSelected,setImageSelected]=useState("")
-  const redeembleStyle = {border:"none", color:" #fff"}
-
-  
+  const redeembleStyle = {border:"none", color:" #fff"}  
   const [id,setId]=useState(0);
   const [classe,setClasse]=useState("");
+  
+
   function handleRedeemed(id:number,name:string, redeemed: boolean, percentage:number, image:string){    
     if(redeemed){
       return(
@@ -48,11 +49,19 @@ const ListRedeem: React.FC<itemsData> = (props) => {
     }
 
   }
+
+  function disableClasse(){
+    setClasse("")
+  }
+  
+  
   function handleClick(id:number,name:string,image:string){
     setId(id);
     setNameSelected(name);
-    setImageSelected(image);  
-    setClasse("open");
+    setImageSelected(image);        
+    setClasse("open");    
+
+    
 }
   return (
     <>
@@ -70,7 +79,7 @@ const ListRedeem: React.FC<itemsData> = (props) => {
                     </div>
                 </div>        
              <span></span>
-             <Modal name={nameSelected} image={imageSelected} classe={classe} id={id}/> 
+             <Modal name={nameSelected} image={imageSelected} classe={classe} id={id} disableClasse={disableClasse}/> 
                       
     </>
   )

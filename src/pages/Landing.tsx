@@ -38,7 +38,7 @@ const Landing = () => {
           
             return(
               
-              <div className="card">
+              <div key={item.id} className="card">
                 <ListRedeem 
                 id={item.id} 
                 name={item.name} 

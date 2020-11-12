@@ -8,22 +8,28 @@ interface ModalInfo{
   name:string,
   image:string,
   classe: string,
+  disableClasse: any;
 }
 
 const Modal = (props: ModalInfo) => {
-const redeem = props.id;
+const redeem = JSON.stringify({item_id:props.id});
+
+let classeFather = props.classe;
+console.log(classeFather);
 
 function handleClickYes(){  
-  
-  api.post(`item/redeem/`,{"item_id":redeem})
+  // document.querySelector(".open")?.classList.remove("open");
+  props.disableClasse();
+  api.post(`item/redeem/`,{redeem})
   .then((response) => {        
     console.log(
       `Data has been sent to the server`
+      
     );    
   })
   .catch((err) => {
     console.error(
-      `Server internal error`
+      `Server internal error ${redeem}`
     );
     console.log(err); 
 })
@@ -32,14 +38,14 @@ function handleClickYes(){
 
 
   return (
-    <div id="teste" className={`modal-second ${props.classe}`}>
+    <div id="teste" className={`modal-second ${classeFather}`}>
       <div className="modal-card">
         <h2>Deseja resgatar?</h2>
         <img src={props.image} alt=""/>
         <h3>{props.name}</h3>
         <div className="btn-modal">
           <button onClick={handleClickYes} className="yes">Sim</button>
-          <button className="no">Não</button>
+          <button onClick={props.disableClasse} className="no">Não</button>
         </div>
       </div>
     </div>
